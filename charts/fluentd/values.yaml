@@ -620,8 +620,16 @@ aggregator:
       </match>
 
       # Send the logs to the standard output
+      # <match **>
+      #   @type stdout
+      # </match>
+
+      # Send the logs to the elasticsearch
       <match **>
-        @type stdout
+        <server>
+          host elasticsearch-master
+          port 9200
+        </server>
       </match>
     metrics.conf: |
       # Prometheus Exporter Plugin
