@@ -191,19 +191,21 @@ forwarder:
         tls_client_private_key_path /opt/bitnami/fluentd/certs/out_forward/tls.key
         {{- end }}
 
-        {{- $fullName := (include "common.names.fullname" .) }}
-        {{- $global := . }}
-        {{- $domain := default "cluster.local" .Values.clusterDomain }}
-        {{- $port := .Values.aggregator.port | int }}
-        {{- range $i, $e := until (.Values.aggregator.replicaCount | int) }}
+        # {{- $fullName := (include "common.names.fullname" .) }}
+        # {{- $global := . }}
+        # {{- $domain := default "cluster.local" .Values.clusterDomain }}
+        # {{- $port := .Values.aggregator.port | int }}
+        # {{- range $i, $e := until (.Values.aggregator.replicaCount | int) }}
         <server>
-          {{ printf "host %s-%d.%s-headless.%s.svc.%s" $fullName $i $fullName $global.Release.Namespace $domain }}
-          {{ printf "port %d" $port }}
-          {{- if ne $i 0 }}
-          standby
-          {{- end }}
+          # {{ printf "host %s-%d.%s-headless.%s.svc.%s" $fullName $i $fullName $global.Release.Namespace $domain }}
+          # {{ printf "port %d" $port }}
+          # {{- if ne $i 0 }}
+          # standby
+          # {{- end }}
+          host elasticsearch-master
+          port 9200
         </server>
-        {{- end}}
+        # {{- end}}
         <buffer>
           @type file
           path /opt/bitnami/fluentd/logs/buffers/logs.buffer
@@ -925,7 +927,7 @@ aggregator:
   ##
   autoscaling:
     enabled: false
-    minReplicas: 2
+    minReplicas: 1
     maxReplicas: 5
     metrics:
       - type: Resource
