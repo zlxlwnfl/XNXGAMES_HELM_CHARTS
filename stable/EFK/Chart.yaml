@@ -3,6 +3,13 @@ name: charts
 description: A Helm chart for Kubernetes
 keywords:
   - efk
+dependencies:
+  - name : "elasticsearch"
+    version : "7.15.0"
+  - name : "fluentd"
+    version : "4.3.4"
+  - name : "kibana"
+    version : "7.15.0"
 
 # A chart can be either an 'application' or a 'library' chart.
 #
