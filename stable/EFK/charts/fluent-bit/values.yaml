@@ -10,7 +10,7 @@ image:
   repository: fluent/fluent-bit
   # Overrides the image tag whose default is {{ .Chart.AppVersion }}
   tag: ""
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
 
 testFramework:
   image:
@@ -236,8 +236,8 @@ extraVolumes: []
 
 extraVolumeMounts: []
 
-updateStrategy: {}
-#   type: RollingUpdate
+updateStrategy:
+  type: RollingUpdate
 #   rollingUpdate:
 #     maxUnavailable: 1
 
@@ -289,16 +289,18 @@ config:
         Merge_Log On
         Keep_Log Off
         K8S-Logging.Parser On
-        K8S-Logging.Exclude On
+        K8S-Logging.Exclude Off
 
   ## https://docs.fluentbit.io/manual/pipeline/outputs
   outputs: |
     [OUTPUT]
         Name es
-        Match kube.*
+        Match *
         Host elasticsearch-master
         Logstash_Format On
         Retry_Limit False
+        tls Off
+        tls.verify Off
 
     [OUTPUT]
         Name es
@@ -307,13 +309,15 @@ config:
         Logstash_Format On
         Logstash_Prefix node
         Retry_Limit False
+        tls Off
+        tls.verify Off
 
   ## https://docs.fluentbit.io/manual/pipeline/parsers
   customParsers: |
     [PARSER]
         Name docker_no_time
         Format json
-        Time_Keep Off
+        Time_Keep On
         Time_Key time
         Time_Format %Y-%m-%dT%H:%M:%S.%L
 

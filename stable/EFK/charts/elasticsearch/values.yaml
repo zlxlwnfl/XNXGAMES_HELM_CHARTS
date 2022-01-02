@@ -21,3 +21,11 @@ volumeClaimTemplate:
   resources:
     requests:
       storage: 100M
+
+protocol: http
+httpPort: 9200
+
+service:
+  enabled: true
+  type: ClusterIP
+  httpPortName: http
