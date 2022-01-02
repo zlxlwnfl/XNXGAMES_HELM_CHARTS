@@ -6,7 +6,7 @@ keywords:
 dependencies:
   - name : "elasticsearch"
     version : "7.15.0"
-  - name : "fluentd-bit"
+  - name : "fluent-bit"
     version : "0.19.16"
   - name : "kibana"
     version : "7.15.0"
