@@ -34,3 +34,6 @@ tests:
   enabled: true
 
 esMajorVersion: 7.15.0
+
+persistence:
+  enabled: true
