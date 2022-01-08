@@ -34,7 +34,7 @@ containerSecurityContext: ~
 
 service:
   # Type of service. Set to "None" to disable the service entirely
-  type: LoadBalancer
+  type: NodePort
   ports:
   - name: status-port
     port: 15021
@@ -62,9 +62,9 @@ resources:
     memory: 1024Mi
 
 autoscaling:
-  enabled: true
-  minReplicas: 1
-  maxReplicas: 5
+  enabled: false
+  # minReplicas: 1
+  # maxReplicas: 5
   targetCPUUtilizationPercentage: 80
 
 # Pod environment variables
