@@ -84,16 +84,16 @@ auth:
   createAdminUser: true
   ## @param auth.adminUser Keycloak administrator user
   ##
-  adminUser: user
+  adminUser: admin
   ## @param auth.adminPassword Keycloak administrator password for the new user
   ##
-  adminPassword: ""
+  adminPassword: admin
   ## @param auth.managementUser Wildfly management user
   ##
   managementUser: manager
   ## @param auth.managementPassword Wildfly management password
   ##
-  managementPassword: ""
+  managementPassword: manager
   ## @param auth.existingSecret An already existing secret containing auth info
   ## e.g:
   ## existingSecret:
@@ -628,7 +628,7 @@ sidecars: []
 service:
   ## @param service.type Kubernetes service type
   ##
-  type: LoadBalancer
+  type: NodePort
   ## @param service.port Service HTTP port
   ##
   port: 80
