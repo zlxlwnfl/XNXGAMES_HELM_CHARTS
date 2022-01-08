@@ -32,3 +32,5 @@ service:
 
 tests:
   enabled: true
+
+esMajorVersion: 7.15.0
