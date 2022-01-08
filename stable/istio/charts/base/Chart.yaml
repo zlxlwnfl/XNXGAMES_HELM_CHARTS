@@ -7,4 +7,4 @@ keywords:
 name: base
 sources:
 - http://github.com/istio/istio
-version: 1.12.1
+version: 1.0.0

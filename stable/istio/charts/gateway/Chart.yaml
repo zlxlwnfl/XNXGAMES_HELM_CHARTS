@@ -9,4 +9,4 @@ name: gateway
 sources:
 - http://github.com/istio/istio
 type: application
-version: 1.12.1
+version: 1.0.0

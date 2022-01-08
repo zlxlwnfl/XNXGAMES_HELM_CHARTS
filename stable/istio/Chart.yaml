@@ -5,11 +5,11 @@ keywords:
   - istio
 dependencies:
   - name : "base"
-    version : "1.12.1"
+    version : "1.0.0"
   - name : "istiod"
-    version : "1.12.1"
+    version : "1.0.0"
   - name : "gateway"
-    version : "1.12.1"
+    version : "1.0.0"
 
 # A chart can be either an 'application' or a 'library' chart.
 #
