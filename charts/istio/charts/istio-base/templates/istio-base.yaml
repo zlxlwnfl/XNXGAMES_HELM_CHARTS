@@ -1,0 +1,6 @@
+global:
+  controlPlaneNamespace: istio-system
+
+  istioNamespace: istio-system
+  istioInjection:
+    enabled: true

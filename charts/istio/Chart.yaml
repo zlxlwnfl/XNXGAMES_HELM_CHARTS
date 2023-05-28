@@ -4,11 +4,11 @@ description: XNXGAMES Istio
 keywords:
   - istio
 dependencies:
-  - name : "base"
+  - name : "istio-base"
+    version : "1.0.0"
+  - name : "istio-ingress"
     version : "1.0.0"
   - name : "istiod"
-    version : "1.0.0"
-  - name : "gateway"
     version : "1.0.0"
 
 # A chart can be either an 'application' or a 'library' chart.
@@ -30,4 +30,4 @@ version: 1.0.0
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: 1.12.1
+appVersion: 1.0.0
