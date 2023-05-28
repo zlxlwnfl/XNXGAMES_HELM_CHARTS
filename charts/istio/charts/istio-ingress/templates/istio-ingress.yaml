@@ -1,0 +1,14 @@
+global:
+  controlPlaneNamespace: istio-system
+
+  hub: docker.io/istio
+  tag: 1.11.2
+
+gateways:
+  istio-ingressgateway:
+    enabled: true
+    replicas: 1
+    autoscaleEnabled: false
+    k8s:
+      service:
+        type: LoadBalancer
