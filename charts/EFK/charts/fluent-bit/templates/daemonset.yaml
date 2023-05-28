@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: fluent-bit
-          image: fluent/fluent-bit:1.8.12
+          image: fluent/fluent-bit:1.9.0
           env:
             - name: FLUENT_ELASTICSEARCH_HOST
               value: elasticsearch-client
